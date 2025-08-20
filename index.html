@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Windy Kaart</title>
+    <meta charset="utf-8" />
+    <script src="https://api.windy.com/assets/libBoot.js"></script>
+    <style>
+      html, body, #windy {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="windy"></div>
+    <script>
+      const options = {
+        key: 'h6jwpX4IZh7ApePI2wYphrfi4a4iDpud', // <-- Vervang dit met je echte key
+        lat: 40.637,
+        lon: -0.624,
+        zoom: 9,
+        overlay: 'satellite',
+      };
+
+      if (typeof windyInit !== 'undefined') {
+        windyInit(options, function(windyAPI) {
+          const { store } = windyAPI;
+          store.set('playAnimation', true);
+        });
+      } else {
+        document.body.innerHTML = '<h2 style="color:white;text-align:center;">Windy API kon niet laden</h2>';
+      }
+    </script>
+  </body>
+</html>
