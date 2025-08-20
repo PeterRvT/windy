@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Windy Kaart</title>
+
+    <link
+      rel="stylesheet"
+      href="https://api.windy.com/assets/libBoot.css"
+    />
+    <script
+      defer
+      src="https://api.windy.com/assets/libBoot.js"
+    ></script>
+
+    <style>
+      html, body, #windy {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="windy"></div>
+
+    <script>
+      window.addEventListener('load', () => {
+        window.windyInit(
+          {
+            key: 'h6jwpX4IZh7ApePI2wYphrfi4a4iDpud',
+            lat: 40.637,
+            lon: -0.624,
+            zoom: 9,
+            overlay: 'satellite'
+          },
+          (windyAPI) => {
+            windyAPI.store.set('playAnimation', true);
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
